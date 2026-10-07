@@ -1,0 +1,1 @@
+export default function Warranty(){return <section className="form-page"><span className="eyebrow">Customer information</span><h1>Warranty.</h1><p className="lead">Door, hardware, smart-lock and installation warranty terms will be added after client approval.</p></section>}

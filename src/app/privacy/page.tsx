@@ -1,0 +1,1 @@
+export default function Privacy(){return <section className="form-page"><span className="eyebrow">Legal</span><h1>Privacy policy.</h1><p className="lead">Placeholder page for professionally reviewed Australian privacy wording before launch.</p></section>}

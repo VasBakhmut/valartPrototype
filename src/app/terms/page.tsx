@@ -1,0 +1,1 @@
+export default function Terms(){return <section className="form-page"><span className="eyebrow">Legal</span><h1>Terms & conditions.</h1><p className="lead">Placeholder page for approved commercial terms before launch.</p></section>}

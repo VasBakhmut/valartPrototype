@@ -1,0 +1,1 @@
+export default function Shipping(){return <section className="form-page"><span className="eyebrow">Customer information</span><h1>Shipping & delivery.</h1><p className="lead">Door and smart-lock delivery rules will be published after service areas and rates are confirmed.</p></section>}

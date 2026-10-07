@@ -1,0 +1,5 @@
+"use client";
+import Link from "next/link";
+import { useMemo, useState } from "react";
+import { doorDesigns, locks } from "@/data/catalog";
+export default function Search(){const [query,setQuery]=useState("");const results=useMemo(()=>{const q=query.trim().toLowerCase();if(!q)return[];return [...doorDesigns.map(d=>({name:`${d.name} · ${d.code}`,href:`/doors/design/${d.slug}`,type:"Door design"})),...locks.map(l=>({name:l.model,href:`/smart-locks/${l.slug}`,type:"Smart lock"}))].filter(i=>i.name.toLowerCase().includes(q))},[query]);return <section className="form-page"><span className="eyebrow">Search VALART</span><h1>Find a design<br/>or smart lock.</h1><label className="search-field">Search<input autoFocus value={query} onChange={e=>setQuery(e.target.value)} placeholder="Try V13-29 or Z8"/></label><div className="search-results">{results.map(item=><Link key={item.href} href={item.href}><span className="eyebrow">{item.type}</span><h2>{item.name}</h2></Link>)}{query&&results.length===0&&<p>No matching products found.</p>}</div></section>}

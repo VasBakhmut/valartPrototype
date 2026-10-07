@@ -1,0 +1,1 @@
+export default function Returns(){return <section className="form-page"><span className="eyebrow">Customer information</span><h1>Returns.</h1><p className="lead">Final wording will reflect Australian Consumer Law and the confirmed custom-product policy.</p></section>}

@@ -1,0 +1,7 @@
+"use client";
+import { notFound, useParams } from "next/navigation";
+import Image from "next/image";
+import { ShoppingBag } from "@phosphor-icons/react";
+import { locks, money } from "@/data/catalog";
+import { useCart } from "@/store/cart";
+export default function LockPage(){ const {slug}=useParams<{slug:string}>(); const lock=locks.find(l=>l.slug===slug); const add=useCart(s=>s.add); if(!lock)notFound(); return <section className="product-detail"><div className="detail-gallery lock-detail-image"><Image src={lock.image} alt={`${lock.model} smart lock`} fill priority sizes="55vw"/></div><div className="detail-copy"><span className="eyebrow">{lock.type}</span><h1>{lock.model}</h1><p className="lead">Slim intelligent access designed for aluminium entrance doors.</p><strong className="detail-price">{money(lock.price)} <small>demo price</small></strong><dl><div><dt>Access</dt><dd>{lock.access.join(", ")}</dd></div><div><dt>App</dt><dd>{lock.app}</dd></div><div><dt>Material</dt><dd>{lock.material}</dd></div><div><dt>Door thickness</dt><dd>40–120 mm</dd></div><div><dt>Protection</dt><dd>IPX5</dd></div></dl><button className="button dark" onClick={()=>add({id:`lock-${lock.model}`,kind:"lock",name:`Smart Lock ${lock.model}`,price:lock.price,image:lock.image,quantity:1})}>Add to cart <ShoppingBag/></button><p className="fine-print">Compatibility, installation and final pricing will be confirmed before purchase.</p></div></section> }
