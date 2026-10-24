@@ -1,11 +1,6 @@
-import Image from "next/image";
+"use client";
 import Link from "next/link";
-
-export function Footer() {
-  return <footer className="footer"><div className="footer-main">
-    <div className="footer-brand"><Image src="/brand/valart-compact.svg" alt="VALART" width={150} height={108}/><p>Premium entrance doors and intelligent access for considered Australian homes.</p><span>Melbourne, Victoria</span></div>
-    <div><h3>Explore</h3><Link href="/doors">Doors</Link><Link href="/configure">Configurator</Link><Link href="/smart-locks">Smart locks</Link></div>
-    <div><h3>Company</h3><Link href="/about">About</Link><Link href="/resources">Resources</Link><Link href="/contact">Contact</Link></div>
-    <div><h3>Support</h3><Link href="/faq">FAQ</Link><Link href="/shipping">Shipping</Link><Link href="/returns">Returns</Link><Link href="/warranty">Warranty</Link></div>
-  </div><div className="footer-bottom"><span>© 2026 VALART STAR. All rights reserved.</span><div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div></div></footer>;
-}
+import {usePathname} from "next/navigation";
+import {ArrowRight} from "@phosphor-icons/react/dist/ssr";
+import {ValartLogo} from "@/components/ValartLogo";
+export function Footer(){const pathname=usePathname(),onConfigurator=pathname==="/configure";return <footer className="footer">{!onConfigurator&&<div className="footer-cta"><div><span className="eyebrow">Begin with the opening</span><h2>Build the entrance<br/>as one specification.</h2></div><div><p>Choose the system, design, dimensions, frame and intelligent access—then send the complete project for review.</p><Link className="button inverse" href="/configure">Open configurator <ArrowRight/></Link></div></div>}<div className="footer-main"><div className="footer-brand"><ValartLogo className="footer-vector-logo"/><p>Premium entrance doors and intelligent access for considered Australian homes.</p><span>Melbourne, Victoria · Australia</span></div><div><h3>Explore</h3><Link href="/doors">Doors</Link><Link href="/configure">Configurator</Link><Link href="/smart-locks">Smart locks</Link><Link href="/search">Search</Link></div><div><h3>Company</h3><Link href="/about">About</Link><Link href="/resources">Resources</Link><Link href="/contact">Contact</Link><Link href="/request-a-quote">Request a quote</Link></div><div><h3>Support</h3><Link href="/faq">FAQ</Link><Link href="/shipping">Shipping</Link><Link href="/returns">Returns</Link><Link href="/warranty">Warranty</Link></div></div><div className="footer-bottom"><span>© 2026 VALART STAR. All rights reserved.</span><div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><a href="#main">Back to top ↑</a></div></div></footer>;}

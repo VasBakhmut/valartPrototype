@@ -1,1 +1,9 @@
-export default function Returns(){return <section className="form-page"><span className="eyebrow">Customer information</span><h1>Returns.</h1><p className="lead">Final wording will reflect Australian Consumer Law and the confirmed custom-product policy.</p></section>}
+import type {Metadata} from "next";import {TechnicalPage} from "@/components/TechnicalPage";
+export const metadata:Metadata={title:"Returns & Exchanges | VALART Australia",description:"Pre-launch returns information for VALART custom entrance doors and smart locks in Australia.",alternates:{canonical:"/returns"}};
+export default function Returns(){return <TechnicalPage eyebrow="Customer information" title="Returns & exchanges." intro="Custom-made entrances and stocked smart locks require different processes. Final terms must remain consistent with Australian Consumer Law." sections={[
+ {title:"Your consumer rights",body:"Nothing in the final policy should exclude rights and remedies that cannot be excluded under Australian Consumer Law. The final wording requires professional review."},
+ {title:"Custom-made doors",body:"Entrances are manufactured to approved dimensions and specifications. Change-of-mind eligibility, cancellation stages and any recoverable costs must be confirmed by VALART before launch."},
+ {title:"Smart locks",body:"Eligibility and instructions for returning unused smart locks, including packaging and proof-of-purchase requirements, are awaiting confirmation."},
+ {title:"Faults or damage",body:"Customers should be given a clear route to report an incorrect, damaged or faulty item. Required evidence, response times and resolution steps must be inserted after operational approval."},
+ {title:"Start a return",body:"Return address, contact channel and authorisation process are not yet confirmed. Do not send a product before VALART provides instructions."}
+ ]}/>}

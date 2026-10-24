@@ -1,1 +1,8 @@
-export default function Shipping(){return <section className="form-page"><span className="eyebrow">Customer information</span><h1>Shipping & delivery.</h1><p className="lead">Door and smart-lock delivery rules will be published after service areas and rates are confirmed.</p></section>}
+import type {Metadata} from "next";import {TechnicalPage} from "@/components/TechnicalPage";
+export const metadata:Metadata={title:"Shipping & Door Delivery Melbourne | VALART",description:"Pre-launch delivery, collection and freight information for VALART entrance doors and smart locks.",alternates:{canonical:"/shipping"}};
+export default function Shipping(){return <TechnicalPage eyebrow="Customer information" title="Shipping & delivery." intro="Doors and smart locks follow different delivery paths. This page separates parcel products from made-to-order architectural entrances." sections={[
+ {title:"Custom entrance doors",body:"Door delivery is arranged against the confirmed project specification. Final service areas, access requirements, freight method and charges are confirmed in the quotation.",points:["Large-format freight is quoted per project","Site access and unloading requirements must be confirmed","Manufacturing and delivery timing begins after final approval"]},
+ {title:"Smart locks",body:"Smart-lock parcel delivery options and rates will be published after the commerce and fulfilment setup is approved.",points:["Availability must be confirmed before dispatch","Tracking rules will be connected with the fulfilment provider","Installation may be quoted separately"]},
+ {title:"Showroom collection",body:"Collection availability, showroom address, opening hours and collection instructions are awaiting final client confirmation."},
+ {title:"Delivery inspection",body:"Inspect packaging and products promptly. The final process and timeframe for reporting transit damage must be added before launch."}
+ ]}/>}

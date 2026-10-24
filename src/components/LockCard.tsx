@@ -1,12 +1,17 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingBag } from "@phosphor-icons/react";
-import type { Lock } from "@/data/catalog";
-import { money } from "@/data/catalog";
-import { useCart } from "@/store/cart";
+import {ArrowRight} from "@phosphor-icons/react/dist/ssr";
+import type {Lock} from "@/data/catalog";
+import {money} from "@/data/catalog";
+import {AddLockButton} from "@/components/AddLockButton";
 
-export function LockCard({ lock }: { lock: Lock }) {
-  const add = useCart((state) => state.add);
-  return <article className="lock-card"><Link href={`/smart-locks/${lock.slug}`} className="lock-image"><Image src={lock.image} alt={`VALART ${lock.model} smart lock`} fill sizes="(max-width: 700px) 100vw, 25vw"/></Link><div className="lock-info"><span className="eyebrow">{lock.type}</span><h3>{lock.model}</h3><p>{lock.access.slice(0,3).join(" · ")}</p><div><strong>{money(lock.price)}</strong><button onClick={() => add({ id: `lock-${lock.model}`, kind: "lock", name: `Smart Lock ${lock.model}`, price: lock.price, image: lock.image, quantity: 1 })} aria-label={`Add ${lock.model} to cart`}><ShoppingBag size={19}/> Add</button></div></div></article>;
+export function LockCard({lock,index}:{lock:Lock;index?:number}){
+ return <article className="lock-card lock-library-card">
+  <Link href={`/smart-locks/${lock.slug}`} className="lock-image">
+   <span className="lock-index">{String((index??0)+1).padStart(2,"0")}</span>
+   <Image src={lock.image} alt={`VALART ${lock.model} smart lock`} fill sizes="(max-width:600px) 100vw,(max-width:1100px) 50vw,25vw"/>
+   <span className="lock-card-link">View details <ArrowRight/></span>
+  </Link>
+  <div className="lock-info"><div className="lock-type"><span>{lock.type}</span><span>{lock.material}</span></div><h3>{lock.model}</h3><p>{lock.access.join(" · ")}</p><div className="lock-purchase"><strong>{money(lock.price)} <small>AUD</small></strong><AddLockButton lock={lock} className="lock-add"/></div></div>
+ </article>;
 }
