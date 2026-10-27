@@ -23,6 +23,7 @@ pnpm-debug.log*
 # Local tooling and generated review files
 tmp/
 .doc_review/
+.door-variation-audit/
 design-qa.md
 tsconfig.tsbuildinfo
 

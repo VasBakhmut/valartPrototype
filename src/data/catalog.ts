@@ -13,6 +13,7 @@ const designPages = [4,5,6,7,9,11,12,13,15,16,17,18,20,21,22,23,24,25,27,28,29,3
 const designNames = ["Axis","Lineal","Vector","Hearth","Monolith","Slate","Timberline","Facet","Frame","Vela","Noir","Flute","Mirage","Signal","Lumen","Obsidian","Reed","Arc","Plane","Column","Contour","Vein","Calm","Strata","Bridge","Ember","Natural","Edge","Lustre","Graphite","Ribbon","Marble","Halo","Seam","Noble","Linear","Cove","Atlas","Orbit","Terra","Relief","Heritage","Crest","Bronze","Pattern","Classic"];
 
 const assemblyFrames: Partial<Record<number, string>> = {
+  4: "Single leaf",
   5: "Pivot leaf + solid companion panel",
   6: "Right sidelight",
   7: "Leaf + solid panel + left sidelight + transom",
@@ -39,8 +40,10 @@ const assemblyFrames: Partial<Record<number, string>> = {
   35: "Double leaf",
   36: "Leaf + decorative companion panel",
   37: "Double leaf",
+  38: "Single leaf",
   39: "Double leaf",
   40: "Double leaf",
+  41: "Single leaf",
   42: "Double leaf",
   43: "Double leaf",
   44: "Decorative double leaf",
@@ -55,6 +58,7 @@ const assemblyFrames: Partial<Record<number, string>> = {
   55: "Asymmetric double leaf",
   56: "Double leaf + two solid panels + transom",
   57: "Double leaf + arched glazed transom",
+  12: "Single leaf",
 };
 
 export const frameArrangements = [
@@ -76,7 +80,7 @@ export const doorDesigns: DoorDesign[] = designPages.map((page, index) => ({
   name: designNames[index] ?? `Design ${String(index + 1).padStart(2, "0")}`,
   image: `/images/doors/clean/catalog-${String(page).padStart(2, "0")}.webp`,
   layerImage: [4, 7, 12, 29, 38, 41].includes(page) ? `/images/doors/layers/catalog-${String(page).padStart(2, "0")}.png` : undefined,
-  assemblyImage: assemblyFrames[page] ? `/images/doors/assemblies/catalog-${String(page).padStart(2, "0")}.png` : undefined,
+  assemblyImage: [4, 12, 38, 41].includes(page) ? `/images/doors/layers/catalog-${String(page).padStart(2, "0")}.png` : `/images/doors/assemblies/catalog-${String(page).padStart(2, "0")}.png`,
   assemblyFrame: assemblyFrames[page],
   systems: index < 18 ? ["off-axis", "all-aluminium-glass"] : index < 29 ? ["one-door-one-view"] : ["pivot"],
   page,
