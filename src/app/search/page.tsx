@@ -1,0 +1,1 @@
+import type {Metadata} from "next";import SearchPageClient from "@/components/SearchPageClient";export const metadata:Metadata={title:"Search VALART",description:"Search VALART entrance doors, smart locks, systems, guides and support information.",robots:{index:false,follow:true}};export default function SearchPage(){return <SearchPageClient/>}

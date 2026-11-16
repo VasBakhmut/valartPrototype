@@ -1,0 +1,1 @@
+import type {Metadata} from "next";import CheckoutPageClient from "@/components/CheckoutPageClient";export const metadata:Metadata={title:"Prototype Checkout",robots:{index:false,follow:false}};export default function CheckoutPage(){return <CheckoutPageClient/>}
